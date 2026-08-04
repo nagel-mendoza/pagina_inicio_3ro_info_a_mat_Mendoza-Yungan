@@ -674,6 +674,49 @@ function googleTranslateElementInit() {
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+<!-- MODAL DE INICIO DE SESIÓN Y REGISTRO -->
+<div id="accountModal" class="modal-overlay">
+    <div class="modal-container account-modal-container">
+        <button class="modal-close-btn" id="closeAccountModal">&times;</button>
+        
+        <!-- Pestañas para alternar -->
+        <div class="account-tabs">
+            <button class="tab-btn active" id="tabLoginBtn">Iniciar Sesión</button>
+            <button class="tab-btn" id="tabRegisterBtn">Registrarse</button>
+        </div>
+
+        <!-- FORMULARIO LOGIN -->
+        <form id="loginForm" class="account-form active">
+            <div class="input-group">
+                <label for="loginEmail">Correo Electrónico</label>
+                <input type="email" id="loginEmail" placeholder="ejemplo@correo.com" required>
+            </div>
+            <div class="input-group">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+        </form>
+
+        <!-- FORMULARIO REGISTRO -->
+        <form id="registerForm" class="account-form">
+            <div class="input-group">
+                <label for="regName">Nombre Completo</label>
+                <input type="text" id="regName" placeholder="Tu Nombre" required>
+            </div>
+            <div class="input-group">
+                <label for="regEmail">Correo Electrónico</label>
+                <input type="email" id="regEmail" placeholder="ejemplo@correo.com" required>
+            </div>
+            <div class="input-group">
+                <label for="regPassword">Contraseña</label>
+                <input type="password" id="regPassword" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Crear Cuenta</button>
+        </form>
+    </div>
+</div>
+
 <!-- MENÚ DESPLEGABLE DE USUARIO LOGUEADO -->
 <div id="userDropdown" class="user-dropdown">
     <div class="dropdown-header">
