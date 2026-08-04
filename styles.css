@@ -3,6 +3,15 @@ html {
     /* Evita que el menú fijo (navbar) tape el título de la sección */
     scroll-padding-top: 80px; 
 }
+/* Tema oscuro */
+.logo {
+    content: url("moleculeMb.png");
+}
+
+/* Tema claro */
+.logo {
+    content: url("moleculeMn.png");
+}
 * {
     margin: 0;
     padding: 0;
