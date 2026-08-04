@@ -17,6 +17,15 @@
 
     <nav class="nav-menu">
         <ul>
+            <li>
+                <a href="#" id="btnOpenSearch" class="search-nav-btn" title="Buscar perfume">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 4px;">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Buscar
+                </a>
+            </li>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="productos.html" class="active">Productos</a></li>
             <li><a href="#" id="btnOpenQuiz">Test Olfativo</a></li>
@@ -24,6 +33,27 @@
         </ul>
     </nav>
 
+    <div id="searchModal" class="modal-overlay">
+        <div class="modal-container search-modal-container">
+            <button class="modal-close-btn" id="closeSearchModal">&times;</button>
+        
+            <div class="search-header">
+                <h2>Buscador Molecule</h2>
+                <p>Encuentra tu fragancia o nota preferida al instante</p>
+            </div>
+
+            <div class="search-box-wrapper">
+                <input type="text" id="searchInput" placeholder="Ej. Cítricos, Le Beau, Vainilla..." autocomplete="off">
+                <button id="executeSearchBtn" class="btn btn-primary">Buscar</button>
+            </div>
+
+            <!-- Resultados de búsqueda simulados -->
+            <div id="searchResults" class="search-results-container">
+                <p class="search-placeholder-text">Escribe algo para comenzar la búsqueda...</p>
+            </div>
+        </div>
+    </div>
+    
     <div class="navbar-icons">
 
         <button id="cartIconBtn" class="cart-icon-btn" title="Carrito de Compras">
