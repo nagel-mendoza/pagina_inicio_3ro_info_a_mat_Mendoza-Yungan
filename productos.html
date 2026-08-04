@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Molecule</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="molecule2.png" alt="Mi Logo" class="logo-img">
+        </a>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html" class="active">Productos</a></li>
+            <li><a href="index.html#logros">Logros</a></li>
+            <li><a href="index.html#personalízalo">Personalízalo</a></li>
+        </ul>
+    </nav>
+
+    <div class="navbar-icons">
+
+        <button id="cartIconBtn" class="cart-icon-btn" title="Carrito de Compras">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span id="cartCountBadge" class="cart-badge">0</span>
+        </button>
+
+        <a href="#ayuda" class="icon-link" title="Ayuda">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+        </a>
+        
+        <button id="langIconBtn" class="cart-icon-btn" title="Cambiar Idioma">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="12" y1="2" x2="12" y2="22"/>
+                <path d="M12 2a15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4 10"/>
+                <path d="M12 2a15.3 15.3 0 0 0 4 10 15.3 15.3 0 0 0-4 10"/>
+            </svg>
+        </button>
+        
+        <a href="#cuenta" class="icon-link" title="Mi Cuenta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="10" r="3"/>
+                <path d="M6 18c0-2.5 2.5-4.5 6-4.5s6 2 6 4.5"/>
+            </svg>
+        </a>
+    </div>
+</header>
+
+<main class="products-page-main">
+    
+    <!-- CATEGORÍA 1: CÍTRICOS -->
+    <section class="products-section">
+        <div class="section-title">
+            <h2>Aromas Cítricos</h2>
+            <p>Fragancias llenas de energía, vitalidad y frescura natural. Dominadas por notas chispeantes de bergamota, limón, pomelo y mandarina, perfectas para energizar tu día a día.</p>
+        </div>
+
+        <div class="products-grid-3">
+            <div class="category-card">
+                <img src="jpgee.webp" alt="Le Beau" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Energía & Frescura</span>
+                    <h3>Le Beau</h3>
+                    <p>Notas vibrantes de bergamota combinadas con un exótico corazón de madera de coco y la calidez del haba tonka.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Le Beau</h3>
+                    <p>Un viaje olfativo que inicia con la frescura frutal de la bergamota, transitando hacia un corazón de madera de coco, y cerrando con la calidez adictiva del haba tonka.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 6 a 8 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Primavera / Verano</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="sd-p.jpg" alt="Dior Sauvage Very Cool" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Chispeante & Urbano</span>
+                    <h3>Sauvage Very Cool</h3>
+                    <p>Una explosión cítrica reforzada con bergamota de Reggio Calabria y un toque fresco de toronja sobre una base amaderada.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Sauvage Very Cool Spray</h3>
+                    <p>Variación ultra radiante del clásico Sauvage. Destaca por una apertura cítrica dominante y desinhibida con matices pimienta y ambroxan.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 7 a 8 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Días calurosos / Uso casual</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="ckc-p.webp" alt="CK One" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Clásico & Vital</span>
+                    <h3>CK One Citrus</h3>
+                    <p>Icónica mezcla equilibrada de limón, bergamota, mandarina y piña con un acorde verde purificante.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>CK One Citrus Blend</h3>
+                    <p>Un estándar mundial de frescura limpia e informal. Transmite pureza inmediata con un equilibrio perfecto entre cítricos y té verde.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 5 a 7 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Verano / Post-entrenamiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA 2: MARINOS -->
+    <section class="products-section">
+        <div class="section-title">
+            <h2>Aromas Marinos</h2>
+            <p>La sensación pura del océano y la brisa marina. Composiciones acuáticas, limpias y refrescantes que evocan libertad, costas abiertas y la serenidad del agua profunda.</p>
+        </div>
+
+        <div class="products-grid-3">
+            <div class="category-card">
+                <img src="aqdg.jpg" alt="Acqua Di Giò" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Brisa & Libertad</span>
+                    <h3>Acqua Di Giò</h3>
+                    <p>Inmersión marina con notas acuáticas puras, sal de mar, mandarina verde y un toque refinado de pachulí.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Acqua Di Giò Profondo</h3>
+                    <p>Una inmersión marina intensa que combina notas acuáticas profundas con esencias aromáticas de romero, lavanda y un fondo elegante de pachulí.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                        <li>• <strong>Duración promedio:</strong> 7 a 9 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Verano / Días Soleados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="iapr-p.jpg" alt="Invictus Aqua" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Fuerza Oceánica</span>
+                    <h3>Invictus Aqua</h3>
+                    <p>Potente combinación de madera de guayaco, ámbar gris y refrescantes acordes marinos y yodados.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Invictus Aqua Edition</h3>
+                    <p>Una versión cargada de dinamismo atlético que sustituye la densidad dulce del original por brisa salina y granos de violeta.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 7 a 8 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Primavera / Verano</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="nv-p.jfif" alt="Nautica Voyage" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Fresco & Cristalino</span>
+                    <h3>Nautica Voyage</h3>
+                    <p>Notas de manzana verde crujiente, hojas verdes acuáticas, flor de loto y mimosa sobre madera de cedro.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Nautica Voyage Original</h3>
+                    <p>Aroma acuático por excelencia para hombres activos. Ofrece una estela fresca, limpia e inconfundible ideal para el día a día.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 6 a 8 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Días calurosos / Salidas informales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA 3: AMADERADOS -->
+    <section class="products-section">
+        <div class="section-title">
+            <h2>Aromas Amaderados</h2>
+            <p>Elegancia, carácter y sofisticación perdurable. Formulados con esencias nobles como sándalo, cedro, vetiver y toques ahumados para quienes buscan una presencia imponente.</p>
+        </div>
+
+        <div class="products-grid-3">
+            <div class="category-card">
+                <img src="cbc.jpg" alt="Bleu de Chanel" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Elegancia & Carácter</span>
+                    <h3>Bleu de Chanel</h3>
+                    <p>Carácter noble con matices de cedro, sándalo de Nueva Caledonia y un sugerente acorde de incienso ahumado.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Bleu de Chanel Eau de Parfum</h3>
+                    <p>Elegancia amaderada refinada de la casa Chanel. Abre con notas chispeantes de pomelo antes de revelar un corazón profundo de cedro, sándalo e incienso.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                        <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Climas Templados / Noche</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="tdh-p.webp" alt="Terre d'Hermès" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Tierra & Mineral</span>
+                    <h3>Terre d'Hermès</h3>
+                    <p>Estructura terrosa mineral que fusiona cedro con pimienta negra, benjuí y chispa de naranja amarga.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Terre d'Hermès Pure Parfum</h3>
+                    <p>Metáfora sobre la materia y su metamorfosis. Una fragancia que expresa la fuerza amaderada del cedro mezclada con notas minerales de pedernal.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Pure Parfum</li>
+                        <li>• <strong>Duración promedio:</strong> 9 a 11 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Otoño / Eventos Formales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="tfow-p.avif" alt="Tom Ford Oud Wood" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Exótico & Exclusivo</span>
+                    <h3>Oud Wood</h3>
+                    <p>Rara e inestimable madera de oud combinada con palisandro, cardamomo, vetiver y sándalo cremoso.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Tom Ford Oud Wood</h3>
+                    <p>Uno de los ingredientes más raros y valiosos del mundo de la perfumería. El humo ahumado del Oud envuelve el espacio con una distinción incomparable.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum (Nicho)</li>
+                        <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Invierno / Noche</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA 4: DULCES / ORIENTALES -->
+    <section class="products-section">
+        <div class="section-title">
+            <h2>Aromas Dulces</h2>
+            <p>Mezclas magnéticas, cálidas y cautivadoras. Dominadas por acordes de vainilla gourmand, haba tonka, cacao y ámbar para quienes disfrutan dejar una estela adictiva e inolvidable.</p>
+        </div>
+
+        <div class="products-grid-3">
+            <div class="category-card">
+                <img src="tftv.webp" alt="Tobacco Vanille" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Seducción & Calidez</span>
+                    <h3>Tobacco Vanille</h3>
+                    <p>Opulenta mezcla de vainilla cremosa, cacao, frutos secos y hoja de tabaco dulce aromático.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Tobacco Vanille Private Blend</h3>
+                    <p>Una interpretación moderna de un club de caballeros inglés. Vainilla aterciopelada y tabaco dulce que generan una experiencia reconfortante y magnética.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum (Nicho)</li>
+                        <li>• <strong>Duración promedio:</strong> 10 a 12 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Otoño / Invierno</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="jpgum-p.jpg" alt="Ultramale" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Intenso & Adictivo</span>
+                    <h3>Ultra Male</h3>
+                    <p>Pera negra dulce, lavanda de sotobosque, canela y una potente base de vainilla negra de Madagascar.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Jean Paul Gaultier Ultra Male</h3>
+                    <p>Un aroma diseñado para llamar la atención en la noche. La combinación de fruta confitada y vainilla crea una proyección sin igual.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette Intense</li>
+                        <li>• <strong>Duración promedio:</strong> 9 a 11 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Fiestas / Climas fríos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="swyi-p.avif" alt="Stronger With You" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Cálido & Envolvente</span>
+                    <h3>Stronger With You</h3>
+                    <p>Acorde dulce de castaña glaseada, pimienta rosa, salvia aromática y esencia de vainilla ahumada.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Emporio Armani Stronger With You</h3>
+                    <p>Perfume juvenil, moderno y sumamente reconfortante. Destaca por su equilibrio entre especias suaves y la dulzura de la castaña caramelizada.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Citas / Otoño</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA 5: ESPECIADOS -->
+    <section class="products-section">
+        <div class="section-title">
+            <h2>Aromas Especiados</h2>
+            <p>Intensidad, misterio y sensualidad ardiente. Una explosión sensacional inspirada en pimientas, canela, cardamomo y resinas exóticas para quienes no temen destacar.</p>
+        </div>
+
+        <div class="products-grid-3">
+            <div class="category-card">
+                <img src="vrsi.jpg" alt="Spicebomb Infrared" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Intensidad & Misterio</span>
+                    <h3>Spicebomb Infrared</h3>
+                    <p>Fuego embotellado con pimienta roja habanera, canela abrasadora, cardamomo y resina de tabaco.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Spicebomb Infrared EDP</h3>
+                    <p>Un estallido ardiente diseñado para destacar. Su composición une la intensidad abrasadora de la pimienta roja habanera y la canela con un sutil fondo masculino de tabaco.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                        <li>• <strong>Duración promedio:</strong> 7 a 9 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Noches de Cita / Climas Fríos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="awbn-p.webp" alt="Wanted by Night" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Picante & Nocturno</span>
+                    <h3>Wanted by Night</h3>
+                    <p>Canela de Ceilán, comino picante, incienso, tabaco especiado y cedro rojo en una mezcla magnética.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Azzaro Wanted by Night</h3>
+                    <p>Una fragancia amaderada-especiada extremadamente seductora. La canela domina el inicio abriendo paso a notas de cuero y resinas cálidas.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                        <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Noche / Invierno</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="lndlh-p.jpg" alt="La Nuit de L'Homme" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Misterio & Elegancia</span>
+                    <h3>La Nuit de L'Homme</h3>
+                    <p>Sofisticado acorde de cardamomo guatemalteco, pimienta negra, lavanda y madera de cedro virginiano.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Yves Saint Laurent La Nuit de L'Homme</h3>
+                    <p>El rey indiscutible de las fragancias de seducción íntima. El cardamomo proyecta un aura misteriosa y envolvente que despierta curiosidad.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                        <li>• <strong>Duración promedio:</strong> 6 a 7 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Citas románticas / Noche</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍA 6: FRUTALES -->
+    <section class="products-section">
+        <div class="section-title">
+            <h2>Aromas Frutales</h2>
+            <p>Juventud, modernidad y frescura jugosa. Composiciones equilibradas de piña madura, manzana verde, grosellas y frutas tropicales entrelazadas con maderas elegantes.</p>
+        </div>
+
+        <div class="products-grid-3">
+            <div class="category-card">
+                <img src="caedp.webp" alt="Creed Aventus" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Juventud & Modernidad</span>
+                    <h3>Creed Aventus</h3>
+                    <p>Icono global con piña madura fresca, manzana verde francesa, bergamota y abedul ahumado.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Creed Aventus Original</h3>
+                    <p>La fragancia frutal madura más aclamada del mundo. Se presenta con una icónica inyección de piña madura fresca y un sofisticado fondo ahumado.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum (Premium)</li>
+                        <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Todo el Año / Versátil</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="yedp-p.jpg" alt="YSL Y Eau de Parfum" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Vibrante & Versátil</span>
+                    <h3>YSL Y Eau de Parfum</h3>
+                    <p>Apertura frutal de manzana verde crujiente, jengibre picante, salvia y madera de ámbar.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>YSL Y Eau de Parfum</h3>
+                    <p>Una fragancia azul ultra moderna donde la fruta adquiere un perfil limpio, electrizante y masculino de larga duración.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                        <li>• <strong>Duración promedio:</strong> 9 a 10 horas</li>
+                        <li>• <strong>Estación ideal:</strong> Todo el año / Oficina o Noche</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="xep-p.jfif" alt="Erba Pura" class="card-img">
+                <div class="card-content">
+                    <span class="card-tag">Exótico & Exuberante</span>
+                    <h3>Xerjoff Erba Pura</h3>
+                    <p>Cesta de frutas mediterráneas jugosas envueltas en almizcle blanco y un fondo de ámbar dulce.</p>
+                    <div class="card-buttons">
+                        <a href="#comprar" class="btn btn-primary">Comprar</a>
+                        <button class="btn btn-secondary js-details-btn">Detalles</button>
+                    </div>
+                </div>
+                <div class="card-details-content">
+                    <span class="card-tag">Especificaciones Técnicas</span>
+                    <h3>Xerjoff Erba Pura</h3>
+                    <p>Una sinfonía frutal exuberante y potente. Extrae la esencia pura de frutas de Sicilia creando un aura inolvidable y duradera.</p>
+                    <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                        <li>• <strong>Concentración:</strong> Eau de Parfum (Nicho)</li>
+                        <li>• <strong>Duración promedio:</strong> 12+ horas</li>
+                        <li>• <strong>Estación ideal:</strong> Primavera / Verano / Eventos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-navigation">
+        <span>Molecule © 2026</span>
+        <a href="#">Privacidad y Legal</a>
+        <a href="#">Contacto</a>
+        <a href="#">Novedades</a>
+        <a href="#">Ubicaciones</a>
+        <a href="#">Saber Más</a>
+    </div>
+
+    <div class="footer-credits">
+        <p>Diseñado y desarrollado por <strong>Nagel Alonso Mendoza Palacios</strong> — Agosto 2026</p>
+    </div>
+</footer>
+
+<!-- MODAL DE AYUDA Y SOPORTE -->
+<div id="helpModal" class="modal-overlay">
+    <div class="modal-container help-modal-container">
+        <button class="modal-close-btn" id="closeHelpModal">&times;</button>
+        
+        <div class="help-header">
+            <h2>¿En qué podemos ayudarte?</h2>
+            <p>Resuelve tus dudas sobre nuestras fragancias o contacta a nuestro equipo.</p>
+        </div>
+
+        <div class="help-content">
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>¿Cómo elijo la fragancia adecuada para mi pH?</summary>
+                    <p>Nuestras moléculas sintéticas como Iso E Super reaccionan único en cada piel. Te sugerimos probar el Discovery Set o revisar las notas aromáticas de cada producto.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Cuáles son los tiempos de envío?</summary>
+                    <p>Los envíos estándar toman de 2 a 4 días hábiles. Contamos con envío express el mismo día para zonas seleccionadas.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Tienen política de devoluciones?</summary>
+                    <p>Si la botella no ha sido abierta ni retirada de su sellado original, dispones de 14 días para solicitar un cambio o reembolso.</p>
+                </details>
+            </div>
+
+            <hr class="help-divider">
+
+            <div class="help-contact-options">
+                <h4>¿Aún tienes dudas? Contacta con nosotros:</h4>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/1234567890" target="_blank" class="contact-btn whatsapp-btn">
+                        💬 Atención por WhatsApp
+                    </a>
+                    <a href="mailto:soporte@moleculeperfumes.com" class="contact-btn email-btn">
+                        ✉️ Enviar un Correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL SELECCIONAR IDIOMA -->
+<div id="langModal" class="modal-overlay">
+    <div class="modal-container help-modal-container" style="max-width: 400px; text-align: center;">
+        <button class="modal-close-btn" id="closeLangModal">&times;</button>
+        <div class="help-header">
+            <h2>Seleccionar Idioma</h2>
+            <p>Elige tu idioma preferido para navegar en Molecule</p>
+        </div>
+        <div style="margin-top: 20px; display: flex; justify-content: center;">
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- Script oficial de Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'es',
+    includedLanguages: 'en,fr,de,it,pt,es',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
