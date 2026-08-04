@@ -674,6 +674,19 @@ function googleTranslateElementInit() {
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+<!-- MENÚ DESPLEGABLE DE USUARIO LOGUEADO -->
+<div id="userDropdown" class="user-dropdown">
+    <div class="dropdown-header">
+        <span class="user-greeting">¡Hola, <strong id="userNameDisplay">Usuario</strong>!</span>
+    </div>
+    <ul class="dropdown-menu-list">
+        <li><a href="#perfil" id="btnProfile"><i class="icon">👤</i> Mi Perfil</a></li>
+        <li><a href="#pedidos" id="btnOrders"><i class="icon">📦</i> Mis Pedidos</a></li>
+        <li class="divider"></li>
+        <li><button id="btnLogoutBtn" class="logout-btn"><i class="icon">🚪</i> Cerrar Sesión</button></li>
+    </ul>
+</div>
+    
 <!-- MODAL TEST OLFATIVO -->
 <div id="quizModal" class="modal-overlay">
     <div class="modal-container quiz-modal-container">
