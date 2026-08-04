@@ -344,40 +344,401 @@ document.addEventListener('click', (e) => {
         if (langModal) langModal.classList.remove('active');
     }
 });
-// Declaramos el índice actual del slide
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide'); // Ajusta a tus clases reales
-const totalSlides = slides.length;
-const dots = document.querySelectorAll('.dot'); // Los circulitos
+// =============================================================
+// LÓGICA DE LOS 2 CARRUSELES (BANNER PRINCIPAL Y CATEGORÍAS)
+// =============================================================
 
-function showSlide(index) {
-  // Manejo de límites circular
-  if (index >= totalSlides) currentSlide = 0;
-  else if (index < 0) currentSlide = totalSlides - 1;
-  else currentSlide = index;
+// --- 1. CARRUSEL PRINCIPAL (BANNER) ---
+const mainSlides = document.querySelectorAll('.banner-container .slide');
+const mainPrevBtn = document.querySelector('.banner-container .prev-arrow');
+const mainNextBtn = document.querySelector('.banner-container .next-arrow');
+const mainDots = document.querySelectorAll('.banner-container .dot');
+let currentMainIndex = 0;
 
-  // Mover contenedor o mostrar/ocultar slides
-  const container = document.querySelector('.slider-container');
-  container.style.transform = `translateX(-${currentSlide * 100}%)`;
+function showMainSlide(index) {
+    if (mainSlides.length === 0) return;
 
-  // Actualizar estado de los puntos (dots)
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === currentSlide);
-  });
+    if (index >= mainSlides.length) currentMainIndex = 0;
+    else if (index < 0) currentMainIndex = mainSlides.length - 1;
+    else currentMainIndex = index;
+
+    mainSlides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentMainIndex);
+    });
+
+    mainDots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentMainIndex);
+    });
 }
 
-// Asignar eventos a las flechas
-document.querySelector('.prev-arrow').addEventListener('click', () => {
-  showSlide(currentSlide - 1);
+if (mainPrevBtn && mainNextBtn) {
+    mainPrevBtn.addEventListener('click', () => showMainSlide(currentMainIndex - 1));
+    mainNextBtn.addEventListener('click', () => showMainSlide(currentMainIndex + 1));
+}
+
+mainDots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => showMainSlide(idx));
 });
 
-document.querySelector('.next-arrow').addEventListener('click', () => {
-  showSlide(currentSlide + 1);
+
+// --- 2. CARRUSEL DE CATEGORÍAS ---
+const catSlides = document.querySelectorAll('.cat-slide');
+const catPrevBtn = document.querySelector('.cat-prev-arrow');
+const catNextBtn = document.querySelector('.cat-next-arrow');
+const catDots = document.querySelectorAll('.cat-dot');
+let currentCatIndex = 0;
+
+function showCatSlide(index) {
+    if (catSlides.length === 0) return;
+
+    if (index >= catSlides.length) currentCatIndex = 0;
+    else if (index < 0) currentCatIndex = catSlides.length - 1;
+    else currentCatIndex = index;
+
+    catSlides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentCatIndex);
+    });
+
+    catDots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentCatIndex);
+    });
+}
+
+if (catPrevBtn && catNextBtn) {
+    catPrevBtn.addEventListener('click', () => showCatSlide(currentCatIndex - 1));
+    catNextBtn.addEventListener('click', () => showCatSlide(currentCatIndex + 1));
+}
+
+catDots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => showCatSlide(idx));
+});
+// =============================================================
+// LÓGICA DEL BOTÓN Y MODAL MI CUENTA / AUTENTICACIÓN
+// =============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const accountBtn = document.querySelector('a[href="#cuenta"]');
+    const accountModal = document.getElementById('accountModal');
+    const closeAccountModal = document.getElementById('closeAccountModal');
+    const userDropdown = document.getElementById('userDropdown');
+    
+    const tabLoginBtn = document.getElementById('tabLoginBtn');
+    const tabRegisterBtn = document.getElementById('tabRegisterBtn');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const btnLogoutBtn = document.getElementById('btnLogoutBtn');
+
+    // Cambiar Pestañas Login/Registro
+    if (tabLoginBtn && tabRegisterBtn) {
+        tabLoginBtn.addEventListener('click', () => {
+            tabLoginBtn.classList.add('active');
+            tabRegisterBtn.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+
+        tabRegisterBtn.addEventListener('click', () => {
+            tabRegisterBtn.classList.add('active');
+            tabLoginBtn.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+    }
+
+    // Comprobar estado de Sesión
+    function checkAuth() {
+        const currentUser = JSON.parse(localStorage.getItem('molecule_user'));
+        return currentUser;
+    }
+
+    // Evento al presionar el icono de Cuenta
+    if (accountBtn) {
+        accountBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const user = checkAuth();
+
+            if (user) {
+                // Si el usuario existe, mostrar/ocultar menú desplegable
+                userNameDisplay.textContent = user.name;
+                userDropdown.classList.toggle('active');
+            } else {
+                // Si no hay sesión, abrir modal de login
+                accountModal.classList.add('active');
+            }
+        });
+    }
+
+    // Cerrar Modal
+    if (closeAccountModal) {
+        closeAccountModal.addEventListener('click', () => {
+            accountModal.classList.remove('active');
+        });
+    }
+
+    // Guardar usuario al Iniciar Sesión (Simulado)
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const name = email.split('@')[0]; // Usa la primera parte del correo como nombre
+            
+            localStorage.setItem('molecule_user', JSON.stringify({ name: name, email: email }));
+            accountModal.classList.remove('active');
+            alert(`¡Bienvenido de nuevo, ${name}!`);
+        });
+    }
+
+    // Guardar usuario al Registrarse
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            
+            localStorage.setItem('molecule_user', JSON.stringify({ name: name, email: email }));
+            accountModal.classList.remove('active');
+            alert(`¡Cuenta creada con éxito! Bienvenido, ${name}.`);
+        });
+    }
+
+    // Cerrar Sesión
+    if (btnLogoutBtn) {
+        btnLogoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('molecule_user');
+            userDropdown.classList.remove('active');
+            alert('Has cerrado sesión correctamente.');
+        });
+    }
+
+    // Cerrar menú si se hace clic fuera
+    document.addEventListener('click', (e) => {
+        if (accountBtn && !accountBtn.contains(e.target) && userDropdown && !userDropdown.contains(e.target)) {
+            userDropdown.classList.remove('active');
+        }
+    });
+});
+// =============================================================
+// LÓGICA DEL TEST OLFATIVO
+// =============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const quizModal = document.getElementById('quizModal');
+    const closeQuizModal = document.getElementById('closeQuizModal');
+    const quizSteps = document.querySelectorAll('.quiz-step');
+    const quizResult = document.getElementById('quizResult');
+    
+    // Botones de las opciones
+    const optButtons = document.querySelectorAll('.quiz-opt-btn');
+    
+    // Botón para abrir el quiz (Asegúrate de agregar id="btnOpenQuiz" al botón de tu menú)
+    const btnOpenQuiz = document.getElementById('btnOpenQuiz');
+
+    let userAnswers = [];
+    let currentStep = 1;
+
+    // Abrir Modal
+    if (btnOpenQuiz && quizModal) {
+        btnOpenQuiz.addEventListener('click', (e) => {
+            e.preventDefault();
+            resetQuiz();
+            quizModal.classList.add('active');
+        });
+    }
+
+    // Cerrar Modal
+    if (closeQuizModal && quizModal) {
+        closeQuizModal.addEventListener('click', () => {
+            quizModal.classList.remove('active');
+        });
+    }
+
+    // Manejar selección de respuestas
+    optButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const val = btn.getAttribute('data-value');
+            userAnswers.push(val);
+
+            // Ocultar paso actual
+            document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('active');
+
+            currentStep++;
+
+            if (currentStep <= quizSteps.length) {
+                // Mostrar siguiente paso
+                document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('active');
+            } else {
+                // Calcular y mostrar resultado
+                showResult();
+            }
+        });
+    });
+
+    function showResult() {
+        quizResult.style.display = 'block';
+
+        const nameEl = document.getElementById('resultPerfumeName');
+        const descEl = document.getElementById('resultPerfumeDesc');
+        const linkEl = document.getElementById('resultPerfumeLink');
+
+        // Lógica simple de recomendación según la última respuesta
+        const lastAns = userAnswers[userAnswers.length - 1];
+
+        if (lastAns === 'maderas' || userAnswers.includes('elegancia')) {
+            nameEl.textContent = "Aromas Amaderados & Especiados";
+            descEl.textContent = "Perfumes intensos con notas de sándalo, cedro y pimienta. Ideales para dejar huella.";
+            linkEl.href = "productos.html#amaderados";
+        } else if (lastAns === 'vainilla' || userAnswers.includes('dulzura')) {
+            nameEl.textContent = "Fragancias Dulces & Gourmet";
+            descEl.textContent = "Notas cálidas de ambar, vainilla y tonka. Seducción y confort para ocasiones especiales.";
+            linkEl.href = "productos.html#dulces";
+        } else {
+            nameEl.textContent = "Aromas Cítricos & Marinos";
+            descEl.textContent = "Frescura vibrante de bergamota, limón y brisa marina. Perfectos para tu uso diario.";
+            linkEl.href = "productos.html#citricos";
+        }
+    }
+
+    function resetQuiz() {
+        userAnswers = [];
+        currentStep = 1;
+        quizResult.style.display = 'none';
+        quizSteps.forEach((step, idx) => {
+            if (idx === 0) step.classList.add('active');
+            else step.classList.remove('active');
+        });
+    }
+});
+// =============================================================
+// LÓGICA DEL MODO REGALO
+// =============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const giftModal = document.getElementById('giftModal');
+    const closeGiftModal = document.getElementById('closeGiftModal');
+    const giftForm = document.getElementById('giftForm');
+    
+    // Botón para abrir el modal de regalo (Asegúrate de agregar este ID en tu menú)
+    const btnOpenGift = document.getElementById('btnOpenGift');
+
+    // Abrir Modal
+    if (btnOpenGift && giftModal) {
+        btnOpenGift.addEventListener('click', (e) => {
+            e.preventDefault();
+            giftModal.classList.add('active');
+        });
+    }
+
+    // Cerrar Modal
+    if (closeGiftModal && giftModal) {
+        closeGiftModal.addEventListener('click', () => {
+            giftModal.classList.remove('active');
+        });
+    }
+
+    // Guardar opciones de regalo en localStorage
+    if (giftForm) {
+        giftForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const giftData = {
+                boxType: document.getElementById('giftBoxType').value,
+                recipient: document.getElementById('giftRecipient').value,
+                message: document.getElementById('giftMessage').value
+            };
+
+            localStorage.setItem('molecule_gift', JSON.stringify(giftData));
+            giftModal.classList.remove('active');
+            
+            alert(`¡Empaque de regalo guardado con éxito para ${giftData.recipient}! Se aplicará a tu próximo pedido.`);
+            giftForm.reset();
+        });
+    }
+});
+// =============================================================
+// LÓGICA DEL BUSCADOR RÁPIDO
+// =============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const searchModal = document.getElementById('searchModal');
+    const closeSearchModal = document.getElementById('closeSearchModal');
+    const btnOpenSearch = document.getElementById('btnOpenSearch');
+    const searchInput = document.getElementById('searchInput');
+    const executeSearchBtn = document.getElementById('executeSearchBtn');
+    const searchResults = document.getElementById('searchResults');
+
+    // Base de datos simulada de productos/categorías para buscar
+    const searchableItems = [
+        { name: "Aromas Cítricos (Bergamota y Limón)", link: "productos.html#citricos", tag: "Cítricos" },
+        { name: "Le Beau - Especificaciones Técnicas", link: "productos.html#citricos", tag: "Perfume" },
+        { name: "Aromas Amaderados & Especiados", link: "productos.html#amaderados", tag: "Amaderados" },
+        { name: "Fragancias Dulces & Gourmet", link: "productos.html#dulces", tag: "Dulces" },
+        { name: "Test Olfativo Molecule", link: "#", tag: "Herramienta", action: "openQuiz" },
+        { name: "Modo Regalo Especial", link: "#", tag: "Servicio", action: "openGift" }
+    ];
+
+    // Abrir modal de búsqueda
+    if (btnOpenSearch && searchModal) {
+        btnOpenSearch.addEventListener('click', (e) => {
+            e.preventDefault();
+            searchModal.classList.add('active');
+            if (searchInput) searchInput.focus();
+        });
+    }
+
+    // Cerrar modal de búsqueda
+    if (closeSearchModal && searchModal) {
+        closeSearchModal.addEventListener('click', () => {
+            searchModal.classList.remove('active');
+        });
+    }
+
+    // Función de búsqueda en tiempo real
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        
+        if (query === "") {
+            searchResults.innerHTML = `<p class="search-placeholder-text">Escribe algo para comenzar la búsqueda...</p>`;
+            return;
+        }
+
+        const filtered = searchableItems.filter(item => 
+            item.name.toLowerCase().includes(query) || item.tag.toLowerCase().includes(query)
+        );
+
+        if (filtered.length === 0) {
+            searchResults.innerHTML = `<p class="search-placeholder-text">No se encontraron resultados para "${query}".</p>`;
+            return;
+        }
+
+        let html = '';
+        filtered.forEach(item => {
+            html += `
+                <a href="${item.link}" class="search-result-item" onclick="handleSearchResult('${item.action}')">
+                    <span>${item.name}</span>
+                    <span class="card-tag" style="font-size: 11px; padding: 2px 6px;">${item.tag}</span>
+                </a>
+            `;
+        });
+        searchResults.innerHTML = html;
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', performSearch);
+    }
+    
+    if (executeSearchBtn) {
+        executeSearchBtn.addEventListener('click', performSearch);
+    }
 });
 
-// Asignar eventos a los circulitos
-dots.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    showSlide(index);
-  });
-});
+// Función auxiliar para acciones especiales desde el buscador
+function handleSearchResult(action) {
+    const searchModal = document.getElementById('searchModal');
+    if (searchModal) searchModal.classList.remove('active');
+
+    if (action === 'openQuiz') {
+        const quizModal = document.getElementById('quizModal');
+        if (quizModal) quizModal.classList.add('active');
+    } else if (action === 'openGift') {
+        const giftModal = document.getElementById('giftModal');
+        if (giftModal) giftModal.classList.add('active');
+    }
+}

@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+    /* Evita que el menú fijo (navbar) tape el título de la sección */
+    scroll-padding-top: 80px; 
+}
 * {
     margin: 0;
     padding: 0;
@@ -1114,4 +1119,385 @@ body {
 
 .goog-te-gadget-icon {
     display: none !important;
+}
+.slider-btn {
+  background-color: #c4c4c4; /* El tono gris de tus botones */
+  border: none;
+  border-radius: 12px;       /* Bordes redondeados */
+  width: 45px;
+  height: 45px;
+  
+  /* Centrado perfecto del símbolo */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  /* Evita que elementos hijo se oculten o corten */
+  overflow: visible;
+  line-height: 1;
+}
+
+.slider-btn:hover {
+  background-color: #a8a8a8;
+}   
+/* --- MODAL MI CUENTA --- */
+.account-modal-container {
+    max-width: 400px;
+    padding: 30px;
+}
+
+.account-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #888888;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.account-form {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.account-form.active {
+    display: flex;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: #cccccc;
+}
+
+.input-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #ffffff;
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* --- MENÚ DESPLEGABLE PERFIL --- */
+.user-dropdown {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.user-dropdown.active {
+    display: block;
+}
+
+.dropdown-header {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.dropdown-menu-list {
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.dropdown-menu-list li a,
+.dropdown-menu-list li button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 15px;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu-list li a:hover,
+.dropdown-menu-list li button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.dropdown-menu-list .divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+}
+/* --- MODAL TEST OLFATIVO --- */
+.quiz-modal-container {
+    max-width: 480px;
+    padding: 30px;
+    text-align: center;
+}
+
+.quiz-header h2 {
+    font-size: 1.5rem;
+    margin: 8px 0;
+    color: #ffffff;
+}
+
+.quiz-header p {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-bottom: 25px;
+}
+
+.quiz-step {
+    display: none;
+}
+
+.quiz-step.active {
+    display: block;
+}
+
+.quiz-step h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quiz-opt-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.quiz-opt-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Resultado */
+.quiz-result {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.quiz-result h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 10px 0 5px 0;
+}
+
+.quiz-result p {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+/* --- MODAL MODO REGALO --- */
+.gift-modal-container {
+    max-width: 440px;
+    padding: 30px;
+    text-align: center;
+}
+
+.gift-header {
+    margin-bottom: 20px;
+}
+
+.gift-header h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 6px 0;
+}
+
+.gift-header p {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+}
+
+.gift-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.gift-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.gift-select option {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.gift-form textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+}
+
+.gift-form textarea:focus,
+.gift-select:focus {
+    border-color: #ffffff;
+}
+/* --- BUSCADOR EN EL MENÚ --- */
+.search-nav-btn {
+    display: flex !important;
+    align-items: center;
+    color: #000000 !important;
+    transition: color 0.3s ease;
+}
+
+.search-nav-btn:hover {
+    color: #000000 !important;
+}
+
+/* --- MODAL DE BÚSQUEDA --- */
+.search-modal-container {
+    max-width: 480px;
+    padding: 30px;
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-header h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.search-header p {
+    font-size: 0.85rem;
+    color: #000000;
+}
+
+.search-box-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box-wrapper input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-box-wrapper input:focus {
+    border-color: #ffffff;
+}
+
+.search-results-container {
+    max-height: 250px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.search-placeholder-text {
+    text-align: center;
+    color: #777777;
+    font-size: 0.9rem;
+    padding: 20px 0;
+}
+
+.search-result-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.search-result-item:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
