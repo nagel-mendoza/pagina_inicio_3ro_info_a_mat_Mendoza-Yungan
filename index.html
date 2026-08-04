@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="moleculeMb.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="moleculeMn.png" media="(prefers-color-scheme: light)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecule</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="molecule2.png" alt="Mi Logo" class="logo-img">
+        </a>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li>
+                <a href="#" id="btnOpenSearch" class="search-nav-btn" title="Buscar perfume">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 4px;">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Buscar
+                </a>
+            </li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="#" id="btnOpenQuiz">Test Olfativo</a></li>
+            <li><a href="#" id="btnOpenGift">Modo Regalo</a></li>
+        </ul>
+    </nav>
+
+    <div id="searchModal" class="modal-overlay">
+        <div class="modal-container search-modal-container">
+            <button class="modal-close-btn" id="closeSearchModal">&times;</button>
+        
+            <div class="search-header">
+                <h2>Buscador Molecule</h2>
+                <p>Encuentra tu fragancia o nota preferida al instante</p>
+            </div>
+
+            <div class="search-box-wrapper">
+                <input type="text" id="searchInput" placeholder="Ej. Cítricos, Le Beau, Vainilla..." autocomplete="off">
+                <button id="executeSearchBtn" class="btn btn-primary">Buscar</button>
+            </div>
+
+            <!-- Resultados de búsqueda simulados -->
+            <div id="searchResults" class="search-results-container">
+                <p class="search-placeholder-text">Escribe algo para comenzar la búsqueda...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar-icons">
+
+        <!-- Botón del carrito -->
+        <button id="cartIconBtn" class="cart-icon-btn" title="Carrito de Compras">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span id="cartCountBadge" class="cart-badge">0</span>
+        </button>
+        
+        <a href="#ayuda" class="icon-link" title="Ayuda">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+        </a>
+        
+        <button id="langIconBtn" class="cart-icon-btn" title="Cambiar Idioma">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="12" y1="2" x2="12" y2="22"/>
+                <path d="M12 2a15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4 10"/>
+                <path d="M12 2a15.3 15.3 0 0 0 4 10 15.3 15.3 0 0 0-4 10"/>
+            </svg>
+        </button>
+        
+        <button id="accountIconBtn" class="cart-icon-btn icon-link" title="Mi Cuenta" style="background: none; border: none; cursor: pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="10" r="3"/>
+                <path d="M6 18c0-2.5 2.5-4.5 6-4.5s6 2 6 4.5"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<main id="inicio">
+    <!-- CARRUSEL PRINCIPAL -->
+    <section class="banner-container">
+        <div class="slide active">
+            <img src="per4.jpg" alt="Banner 1" class="slide-img">
+            <div class="legend">
+                <h1>Innovación Constante</h1>
+                <p>Diseño de vanguardia pensado para el futuro.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="per2.jpg" alt="Banner 2" class="slide-img">
+            <div class="legend">
+                <h1>Rendimiento Superior</h1>
+                <p>Superando los límites de la tecnología actual.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="per3.jpg" alt="Banner 3" class="slide-img">
+            <div class="legend">
+                <h1>Tu Estilo, Tu Elección</h1>
+                <p>Personaliza cada detalle a tu medida.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="per.jpg" alt="Banner 4" class="slide-img">
+            <div class="legend">
+                <h1>Tu Estilo, Tu Elección</h1>
+                <p>Personaliza cada detalle a tu medida.</p>
+            </div>
+        </div>
+
+        <button class="carousel-arrow prev-arrow" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+            </svg>
+        </button>
+
+        <button class="carousel-arrow next-arrow" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+            </svg>
+        </button>
+
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- CARRUSEL DE CATEGORÍAS DOBLES -->
+    <section id="productos" class="categories-carousel-section">
+        <div class="section-title">
+            <h2>Explora por Familias Olfativas</h2>
+            <p>Encuentra la identidad de tu aroma ideal</p>
+        </div>
+
+        <div class="categories-container">
+            <button class="cat-arrow cat-prev-arrow" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+
+            <button class="cat-arrow cat-next-arrow" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </button>
+
+            <!-- PÁGINA 1 -->
+            <div class="cat-slide active">
+                <div class="cards-grid-double">
+                    <div class="category-card">
+                        <img src="jpgee.webp" alt="Fragancias Cítricas" class="card-img">
+                        <div class="card-content">
+                            <span class="card-tag">Energía & Frescura</span>
+                            <h3>Aromas Cítricos</h3>
+                            <p>Notas vibrantes de bergamota y limón. Ideales para el uso diario.</p>
+                            <div class="card-buttons">
+                                <a href="productos.html" class="btn btn-primary">Comprar</a>
+                                <button class="btn btn-secondary js-details-btn">Detalles</button>
+                            </div>
+                            <a href="productos.html#citricos" class="btn-cat-link">Explorar Categoría</a>
+                        </div>
+
+                        <div class="card-details-content">
+                            <span class="card-tag">Especificaciones Técnicas</span>
+                            <h3>Le Beau</h3>
+                            <p>Un viaje olfativo que inicia con la frescura frutal de la bergamota, transitando hacia un corazón de madera de coco, y cerrando con la calidez adictiva del haba tonka.</p>
+                            <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                                <li>• <strong>Concentración:</strong> Eau de Toilette</li>
+                                <li>• <strong>Duración promedio:</strong> 6 a 8 horas</li>
+                                <li>• <strong>Estación ideal:</strong> Primavera / Verano</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <img src="aqdg.jpg" alt="Fragancias Marinas" class="card-img">
+                        <div class="card-content">
+                            <span class="card-tag">Brisa & Libertad</span>
+                            <h3>Aromas Marinos</h3>
+                            <p>Sensación de frescura oceánica pura y notas limpias de sal marina.</p>
+                            <div class="card-buttons">
+                                <a href="productos.html" class="btn btn-primary">Comprar</a>
+                                <button class="btn btn-secondary js-details-btn">Detalles</button>
+                            </div>
+                            <a href="productos.html#marinos" class="btn-cat-link">Explorar Categoría</a>
+                        </div>
+
+                        <div class="card-details-content">
+                            <span class="card-tag">Especificaciones Técnicas</span>
+                            <h3>Acqua Di Giò</h3>
+                            <p>Una inmersión marina intensa que combina notas acuáticas profundas con esencias aromáticas de mandarina verde, romero, lavanda y un fondo elegante de pachulí.</p>
+                            <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                                <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                                <li>• <strong>Duración promedio:</strong> 7 a 9 horas</li>
+                                <li>• <strong>Estación ideal:</strong> Verano / Días Soleados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA 2 -->
+            <div class="cat-slide">
+                <div class="cards-grid-double">
+                    <div class="category-card">
+                        <img src="cbc.jpg" alt="Fragancias Amaderadas" class="card-img">
+                        <div class="card-content">
+                            <span class="card-tag">Elegancia & Carácter</span>
+                            <h3>Aromas Amaderados</h3>
+                            <p>Robustos y sofisticados, basados en esencias de cedro y sándalo.</p>
+                            <div class="card-buttons">
+                                <a href="productos.html" class="btn btn-primary">Comprar</a>
+                                <button class="btn btn-secondary js-details-btn">Detalles</button>
+                            </div>
+                            <a href="productos.html#amaderados" class="btn-cat-link">Explorar Categoría</a>
+                        </div>
+
+                        <div class="card-details-content">
+                            <span class="card-tag">Especificaciones Técnicas</span>
+                            <h3>Bleu de Chanel</h3>
+                            <p>Elegancia amaderada refinada de la casa Chanel. Abre con notas chispeantes de pomelo antes de revelar un corazón profundo de cedro, sándalo y un místico toque de incienso.</p>
+                            <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                                <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                                <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                                <li>• <strong>Estación ideal:</strong> Climas Templados / Noche</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <img src="tftv.webp" alt="Fragancias Dulces" class="card-img">
+                        <div class="card-content">
+                            <span class="card-tag">Seducción & Calidez</span>
+                            <h3>Aromas Dulces</h3>
+                            <p>Mezclas magnéticas de vainilla, haba tonka y ámbar exótico.</p>
+                            <div class="card-buttons">
+                                <a href="productos.html" class="btn btn-primary">Comprar</a>
+                                <button class="btn btn-secondary js-details-btn">Detalles</button>
+                            </div>
+                            <a href="productos.html#dulces" class="btn-cat-link">Explorar Categoría</a>
+                        </div>
+
+                        <div class="card-details-content">
+                            <span class="card-tag">Especificaciones Técnicas</span>
+                            <h3>Tobacco Vanille</h3>
+                            <p>Una fragancia artesanal opulenta y sumamente cálida. Combina una vainilla cremosa superior con notas intensas de cacao, frutos secos y esencias de tabaco dulce aromático.</p>
+                            <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                                <li>• <strong>Concentración:</strong> Eau de Parfum (Nicho)</li>
+                                <li>• <strong>Duración promedio:</strong> 10 a 12 horas</li>
+                                <li>• <strong>Estación ideal:</strong> Otoño / Invierno</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PÁGINA 3 -->
+            <div class="cat-slide">
+                <div class="cards-grid-double">
+                    <div class="category-card">
+                        <img src="vrsi.jpg" alt="Fragancias Especiadas" class="card-img">
+                        <div class="card-content">
+                            <span class="card-tag">Intensidad & Misterio</span>
+                            <h3>Aromas Especiados</h3>
+                            <p>Toques ardientes de pimienta negra, canela y cardamomo.</p>
+                            <div class="card-buttons">
+                                <a href="productos.html" class="btn btn-primary">Comprar</a>
+                                <button class="btn btn-secondary js-details-btn">Detalles</button>
+                            </div>
+                            <a href="productos.html#especiados" class="btn-cat-link">Explorar Categoría</a>
+                        </div>
+
+                        <div class="card-details-content">
+                            <span class="card-tag">Especificaciones Técnicas</span>
+                            <h3>Spicebomb Infrared</h3>
+                            <p>Un estallido ardiente diseñado para destacar. Su composición une la intensidad abrasadora de la pimienta roja habanera y la canela con un sutil fondo masculino de tabaco y resinas.</p>
+                            <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                                <li>• <strong>Concentración:</strong> Eau de Parfum</li>
+                                <li>• <strong>Duración promedio:</strong> 7 a 9 horas</li>
+                                <li>• <strong>Estación ideal:</strong> Noches de Cita / Climas Fríos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <img src="caedp.webp" alt="Fragancias Frutales" class="card-img">
+                        <div class="card-content">
+                            <span class="card-tag">Juventud & Modernidad</span>
+                            <h3>Aromas Frutales</h3>
+                            <p>Combinaciones jugosas de manzana verde, piña y coco tropical.</p>
+                            <div class="card-buttons">
+                                <a href="productos.html" class="btn btn-primary">Comprar</a>
+                                <button class="btn btn-secondary js-details-btn">Detalles</button>
+                            </div>
+                            <a href="productos.html#frutales" class="btn-cat-link">Explorar Categoría</a>
+                        </div>
+
+                        <div class="card-details-content">
+                            <span class="card-tag">Especificaciones Técnicas</span>
+                            <h3>Creed Aventus</h3>
+                            <p>La fragancia frutal madura más aclamada del mundo. Se presenta con una icónica inyección de piña madura fresca, manzana verde francesa y bergamota, equilibrada con un fondo ahumado de abedul.</p>
+                            <ul style="list-style: none; padding: 0; color: #e2e2e2; font-size: 14px;">
+                                <li>• <strong>Concentración:</strong> Eau de Parfum (Premium)</li>
+                                <li>• <strong>Duración promedio:</strong> 8 a 10 horas</li>
+                                <li>• <strong>Estación ideal:</strong> Todo el Año / Versátil</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categories-dots">
+            <span class="cat-dot active"></span>
+            <span class="cat-dot"></span>
+            <span class="cat-dot"></span>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-disclaimers">
+        <p><sup>1</sup> Las notas olfativas y la fijación de la fragancia pueden variar según el pH de la piel y las condiciones ambientales. Todos los componentes de Molecule son 100% libres de crueldad animal y elaborados con esencias de alta pureza.</p>
+        <p><sup>2</sup> El precio base mostrado ($85) corresponde a la presentación estándar de 50 ml. No incluye impuestos locales ni tarifas adicionales de envío express. Precios y disponibilidad de las colecciones sujetos a cambios sin previo aviso.</p>
+    </div>
+
+    <div class="footer-navigation">
+        <span>Molecule © 2026</span>
+        <a href="#">Privacidad y Legal</a>
+        <a href="#">Contacto</a>
+        <a href="#">Novedades</a>
+        <a href="#">Ubicaciones</a>
+        <a href="#">Saber Más</a>
+    </div>
+
+    <div class="footer-credits">
+        <p>Diseñado y desarrollado por <strong>Nagel Alonso Mendoza Palacios</strong> — Agosto 2026</p>
+    </div>
+</footer>
+
+<!-- MODAL DE AYUDA Y SOPORTE -->
+<div id="helpModal" class="modal-overlay">
+    <div class="modal-container help-modal-container">
+        <button class="modal-close-btn" id="closeHelpModal">&times;</button>
+        
+        <div class="help-header">
+            <h2>¿En qué podemos ayudarte?</h2>
+            <p>Resuelve tus dudas sobre nuestras fragancias o contacta a nuestro equipo.</p>
+        </div>
+
+        <div class="help-content">
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>¿Cómo elijo la fragancia adecuada para mi pH?</summary>
+                    <p>Nuestras moléculas sintéticas como Iso E Super reaccionan único en cada piel. Te sugerimos probar el Discovery Set o revisar las notas aromáticas de cada producto.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Cuáles son los tiempos de envío?</summary>
+                    <p>Los envíos estándar toman de 2 a 4 días hábiles. Contamos con envío express el mismo día para zonas seleccionadas.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>¿Tienen política de devoluciones?</summary>
+                    <p>Si la botella no ha sido abierta ni retirada de su sellado original, dispones de 14 días para solicitar un cambio o reembolso.</p>
+                </details>
+            </div>
+
+            <hr class="help-divider">
+
+            <div class="help-contact-options">
+                <h4>¿Aún tienes dudas? Contacta con nosotros:</h4>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/1234567890" target="_blank" class="contact-btn whatsapp-btn">
+                        💬 Atención por WhatsApp
+                    </a>
+                    <a href="mailto:soporte@moleculeperfumes.com" class="contact-btn email-btn">
+                        ✉️ Enviar un Correo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL SELECCIONAR IDIOMA -->
+<div id="langModal" class="modal-overlay">
+    <div class="modal-container help-modal-container" style="max-width: 400px; text-align: center;">
+        <button class="modal-close-btn" id="closeLangModal">&times;</button>
+        <div class="help-header">
+            <h2>Seleccionar Idioma</h2>
+            <p>Elige tu idioma preferido para navegar en Molecule</p>
+        </div>
+        <div style="margin-top: 20px; display: flex; justify-content: center;">
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- Script oficial de Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'es',
+    includedLanguages: 'en,fr,de,it,pt,es',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- MODAL DE INICIO DE SESIÓN Y REGISTRO -->
+<div id="accountModal" class="modal-overlay">
+    <div class="modal-container account-modal-container">
+        <button class="modal-close-btn" id="closeAccountModal">&times;</button>
+        
+        <!-- Pestañas para alternar -->
+        <div class="account-tabs">
+            <button class="tab-btn active" id="tabLoginBtn">Iniciar Sesión</button>
+            <button class="tab-btn" id="tabRegisterBtn">Registrarse</button>
+        </div>
+
+        <!-- FORMULARIO LOGIN -->
+        <form id="loginForm" class="account-form active">
+            <div class="input-group">
+                <label for="loginEmail">Correo Electrónico</label>
+                <input type="email" id="loginEmail" placeholder="ejemplo@correo.com" required>
+            </div>
+            <div class="input-group">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+        </form>
+
+        <!-- FORMULARIO REGISTRO -->
+        <form id="registerForm" class="account-form">
+            <div class="input-group">
+                <label for="regName">Nombre Completo</label>
+                <input type="text" id="regName" placeholder="Tu Nombre" required>
+            </div>
+            <div class="input-group">
+                <label for="regEmail">Correo Electrónico</label>
+                <input type="email" id="regEmail" placeholder="ejemplo@correo.com" required>
+            </div>
+            <div class="input-group">
+                <label for="regPassword">Contraseña</label>
+                <input type="password" id="regPassword" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Crear Cuenta</button>
+        </form>
+    </div>
+</div>
+
+<!-- MENÚ DESPLEGABLE DE USUARIO LOGUEADO -->
+<div id="userDropdown" class="user-dropdown">
+    <div class="dropdown-header">
+        <span class="user-greeting">¡Hola, <strong id="userNameDisplay">Usuario</strong>!</span>
+    </div>
+    <ul class="dropdown-menu-list">
+        <li><a href="#perfil" id="btnProfile"><i class="icon">👤</i> Mi Perfil</a></li>
+        <li><a href="#pedidos" id="btnOrders"><i class="icon">📦</i> Mis Pedidos</a></li>
+        <li class="divider"></li>
+        <li><button id="btnLogoutBtn" class="logout-btn"><i class="icon">🚪</i> Cerrar Sesión</button></li>
+    </ul>
+</div>
+
+<!-- MODAL TEST OLFATIVO -->
+<div id="quizModal" class="modal-overlay">
+    <div class="modal-container quiz-modal-container">
+        <button class="modal-close-btn" id="closeQuizModal">&times;</button>
+
+        <!-- CABECERA -->
+        <div class="quiz-header">
+            <span class="card-tag">Descubre tu Aroma</span>
+            <h2>Test Olfativo Molecule</h2>
+            <p>Responde 3 preguntas rápidas para encontrar tu fragancia ideal.</p>
+        </div>
+
+        <!-- CONTENIDO DEL QUIZ (Cambia dinámicamente) -->
+        <div id="quizContent" class="quiz-content">
+            <!-- Pregunta 1 -->
+            <div class="quiz-step active" data-step="1">
+                <h3>1. ¿En qué ocasión prefieres usar tu perfume?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-opt-btn" data-value="diario">☀️ Uso diario y trabajo</button>
+                    <button class="quiz-opt-btn" data-value="noche">🌙 Citas y eventos de noche</button>
+                    <button class="quiz-opt-btn" data-value="deporte">🏋️ Deporte y días calurosos</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="quiz-step" data-step="2">
+                <h3>2. ¿Qué sensación buscas al aplicar tu fragancia?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-opt-btn" data-value="frescura">🍃 Frescura intensa y energía</button>
+                    <button class="quiz-opt-btn" data-value="elegancia">🪵 Elegancia, misterio y carácter</button>
+                    <button class="quiz-opt-btn" data-value="dulzura">🍯 Dulzura, calidez y seducción</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="quiz-step" data-step="3">
+                <h3>3. ¿Cuál de estos aromas te atrae más?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-opt-btn" data-value="citricos">🍋 Cítricos y notas marinas</button>
+                    <button class="quiz-opt-btn" data-value="maderas">🌲 Maderas secas y especias</button>
+                    <button class="quiz-opt-btn" data-value="vainilla">🍦 Vainilla, ámbar y frutas</button>
+                </div>
+            </div>
+
+            <!-- RESULTADO FINAL -->
+            <div id="quizResult" class="quiz-result" style="display: none;">
+                <span class="card-tag">Tu Resultado Ideal</span>
+                <h3 id="resultPerfumeName">Le Beau - Jean Paul Gaultier</h3>
+                <p id="resultPerfumeDesc">Un viaje olfativo que inicia con la frescura frutal de la bergamota y evoluciona hacia notas cálidas.</p>
+                <a id="resultPerfumeLink" href="productos.html#citricos" class="btn btn-primary" style="margin-top: 15px;">Ver Producto</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL MODO REGALO -->
+<div id="giftModal" class="modal-overlay">
+    <div class="modal-container gift-modal-container">
+        <button class="modal-close-btn" id="closeGiftModal">&times;</button>
+
+        <div class="gift-header">
+            <span class="card-tag">Experiencia Especial</span>
+            <h2>Modo Regalo Molecule</h2>
+            <p>Convierte tu pedido en un obsequio inolvidable con nuestros detalles exclusivos.</p>
+        </div>
+
+        <form id="giftForm" class="gift-form">
+            <div class="input-group">
+                <label for="giftBoxType">1. Elige tu tipo de empaque</label>
+                <select id="giftBoxType" class="gift-select">
+                    <option value="classic">Caja Negra Clásica Molecule (Gratis)</option>
+                    <option value="luxury">Caja de Lujo Dorada con Listón (+ $3.50)</option>
+                    <option value="eco">Bolsa de Regalo Ecológica de Terciopelo (+ $2.00)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="giftRecipient">2. Nombre de la persona que recibe</label>
+                <input type="text" id="giftRecipient" placeholder="Ej. Sofía Mendoza" required>
+            </div>
+
+            <div class="input-group">
+                <label for="giftMessage">3. Dedicatoria en Tarjeta Impresa</label>
+                <textarea id="giftMessage" rows="3" placeholder="Escribe tu mensaje especial aquí... (Máx. 250 caracteres)" maxlength="250"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Aplicar Modo Regalo</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
